@@ -200,8 +200,8 @@ padding = (0, pw - w, 0, ph - h)
 pbar = tqdm(total=tot_frame)
 if args.montage:
     lastframe = lastframe[:, left: left + w]
-write_buffer = Queue(maxsize=500)
-read_buffer = Queue(maxsize=500)
+write_buffer = Queue(maxsize=100)
+read_buffer = Queue(maxsize=100)
 _thread.start_new_thread(build_read_buffer, (args, read_buffer, videogen))
 _thread.start_new_thread(clear_write_buffer, (args, write_buffer))
 
